@@ -1074,6 +1074,84 @@
 
 
 
+    /* STATISTIQUES */
+
+    .stats-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 1.5rem;
+
+    }
+
+    .stat-item {
+
+      text-align: center;
+
+      padding: 1.5rem;
+
+      background: rgba(21, 21, 38, 0.98);
+
+      border-radius: var(--radius);
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      box-shadow: var(--shadow);
+
+    }
+
+    .stat-number {
+
+      font-size: 2.5rem;
+
+      font-weight: 700;
+
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+
+      background-clip: text;
+
+      margin-bottom: 0.3rem;
+
+    }
+
+    .stat-label {
+
+      font-size: 0.85rem;
+
+      color: var(--text-light);
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.1em;
+
+    }
+
+    @media (min-width: 768px) {
+
+      .stats-grid {
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 2rem;
+
+      }
+
+      .stat-number {
+
+        font-size: 3rem;
+
+      }
+
+    }
+
+
+
     /* FAQ */
 
     .faq-list {
@@ -1849,6 +1927,54 @@
               <span>+86 155-2830-2653</span>
 
             </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- STATISTIQUES -->
+
+    <section id="stats" style="padding: 2.5rem 0;">
+
+      <div class="container">
+
+        <div class="stats-grid">
+
+          <div class="stat-item">
+
+            <div class="stat-number">500+</div>
+
+            <div class="stat-label">学员 · Élèves</div>
+
+          </div>
+
+          <div class="stat-item">
+
+            <div class="stat-number">5年</div>
+
+            <div class="stat-label">教学经验 · Expérience</div>
+
+          </div>
+
+          <div class="stat-item">
+
+            <div class="stat-number">98%</div>
+
+            <div class="stat-label">满意度 · Satisfaction</div>
+
+          </div>
+
+          <div class="stat-item">
+
+            <div class="stat-number">100%</div>
+
+            <div class="stat-label">免费体验课 · Cours gratuit</div>
 
           </div>
 
