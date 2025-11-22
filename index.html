@@ -76,15 +76,15 @@
 
       position: fixed;
 
-      left: 3%;
+      left: 8%;
 
       top: 50%;
 
       transform: translateY(-50%);
 
-      width: 900px;
+      width: 720px;
 
-      height: 1350px;
+      height: 1080px;
 
       z-index: 0;
 
@@ -100,9 +100,9 @@
 
       display: block;
 
-      opacity: 0.55;
+      opacity: 0.5;
 
-      filter: drop-shadow(0 0 25px rgba(255, 75, 155, 0.4));
+      filter: drop-shadow(0 0 22px rgba(255, 75, 155, 0.35));
 
     }
 
@@ -110,17 +110,17 @@
 
       .dancer-silhouette-wrapper {
 
-        left: 0;
+        left: 2%;
 
         top: unset;
 
-        bottom: 4%;
+        bottom: 5%;
 
         transform: none;
 
-        width: 540px;
+        width: 420px;
 
-        height: 860px;
+        height: 650px;
 
       }
 
@@ -1256,21 +1256,21 @@
 
           </feComponentTransfer>
 
-          <!-- Seuil très strict pour éliminer totalement le texte "123RF" -->
+          <!-- Seuil adapté pour garder la silhouette tout en supprimant le texte -->
 
           <feComponentTransfer>
 
-            <feFuncR type="discrete" tableValues="0 0 0 0 0 1" />
+            <feFuncR type="discrete" tableValues="0 0 0 0.1 0.3 0.7 1 1" />
 
-            <feFuncG type="discrete" tableValues="0 0 0 0 0 1" />
+            <feFuncG type="discrete" tableValues="0 0 0 0.1 0.3 0.7 1 1" />
 
-            <feFuncB type="discrete" tableValues="0 0 0 0 0 1" />
+            <feFuncB type="discrete" tableValues="0 0 0 0.1 0.3 0.7 1 1" />
 
           </feComponentTransfer>
 
-          <!-- Léger flou pour lisser les contours -->
+          <!-- Lissage léger -->
 
-          <feGaussianBlur stdDeviation="0.8" />
+          <feGaussianBlur stdDeviation="0.4" />
 
         </filter>
 
