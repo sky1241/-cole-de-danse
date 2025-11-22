@@ -1238,9 +1238,13 @@
 
         </linearGradient>
 
-        <filter id="maskInvert" color-interpolation-filters="sRGB">
+        <filter id="maskProcess" color-interpolation-filters="sRGB">
+
+          <!-- Conversion en niveaux de gris -->
 
           <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" />
+
+          <!-- Inversion pour transformer les zones noires en zones blanches -->
 
           <feComponentTransfer>
 
@@ -1252,13 +1256,29 @@
 
           </feComponentTransfer>
 
+          <!-- Seuil très strict pour éliminer totalement le texte "123RF" -->
+
+          <feComponentTransfer>
+
+            <feFuncR type="discrete" tableValues="0 0 0 0 0 1" />
+
+            <feFuncG type="discrete" tableValues="0 0 0 0 0 1" />
+
+            <feFuncB type="discrete" tableValues="0 0 0 0 0 1" />
+
+          </feComponentTransfer>
+
+          <!-- Léger flou pour lisser les contours -->
+
+          <feGaussianBlur stdDeviation="0.8" />
+
         </filter>
 
         <mask id="dancerMask" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
 
           <image xlink:href="33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg"
 
-            x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid meet" filter="url(#maskInvert)" />
+            x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid meet" filter="url(#maskProcess)" />
 
         </mask>
 
