@@ -1122,6 +1122,94 @@
 
 
 
+    /* Boutons de partage */
+
+    .share-buttons {
+
+      position: fixed;
+
+      right: 20px;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 0.8rem;
+
+      z-index: 98;
+
+    }
+
+    .share-btn {
+
+      width: 45px;
+
+      height: 45px;
+
+      border-radius: 50%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    }
+
+    .share-btn:hover {
+
+      transform: scale(1.1);
+
+    }
+
+    .share-wechat {
+
+      background: #09BB07;
+
+    }
+
+    .share-weibo {
+
+      background: #E6162D;
+
+    }
+
+    @media (max-width: 768px) {
+
+      .share-buttons {
+
+        right: 10px;
+
+        top: auto;
+
+        bottom: 160px;
+
+        transform: none;
+
+      }
+
+      .share-btn {
+
+        width: 40px;
+
+        height: 40px;
+
+      }
+
+    }
+
+
+
     /* CONTACT */
 
 
@@ -1565,6 +1653,34 @@
       <polyline points="18 15 12 9 6 15"></polyline>
 
     </svg>
+
+  </div>
+
+
+
+  <!-- Boutons de partage social -->
+
+  <div class="share-buttons">
+
+    <div class="share-btn share-wechat" onclick="shareToWeChat()" title="分享到微信">
+
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+
+        <path d="M8.5 12.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm9 0c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm4.5-2.5c0-3.31-3.13-6-7-6s-7 2.69-7 6c0 1.66.67 3.16 1.77 4.25-.22.66-.88 2.13-1.77 2.75 0 0 2.37-.06 4.25-1.34 1.19.44 2.48.67 3.75.67 3.87 0 7-2.69 7-6zm-7-8c5.52 0 10 3.81 10 8.5 0 1.37-.42 2.65-1.13 3.78-.34.53-.74 1.01-1.18 1.43-.88 2.63-3.5 2.63-3.5 2.63s.88-1.75.88-3.5c-1.75.88-3.63 1.38-5.63 1.38-5.52 0-10-3.81-10-8.5S9.48 2 15 2z"/>
+
+      </svg>
+
+    </div>
+
+    <div class="share-btn share-weibo" onclick="shareToWeibo()" title="分享到微博">
+
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+
+        <path d="M9.35 16.88c0 1.33-1.08 2.41-2.41 2.41-1.33 0-2.41-1.08-2.41-2.41 0-1.33 1.08-2.41 2.41-2.41 1.33 0 2.41 1.08 2.41 2.41zm3.96-8.86c-.18-.04-.31-.06-.54-.06-.99 0-1.93.39-2.63 1.09-.7.7-1.09 1.63-1.09 2.63 0 .23.02.36.06.54.13.53.38 1.03.73 1.46.35.43.79.79 1.27 1.05.48.26 1 .43 1.55.5.13.02.25.03.38.03 1.99 0 3.6-1.61 3.6-3.6 0-1.99-1.61-3.6-3.6-3.6-.13 0-.25.01-.38.03-.55.07-1.07.24-1.55.5-.48.26-.92.62-1.27 1.05-.35.43-.6.93-.73 1.46zm7.69 5.98c0 3.87-3.13 7-7 7-3.87 0-7-3.13-7-7 0-3.87 3.13-7 7-7 3.87 0 7 3.13 7 7z"/>
+
+      </svg>
+
+    </div>
 
   </div>
 
