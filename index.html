@@ -1184,6 +1184,62 @@
 
 
 
+    /* Bouton retour en haut */
+
+    .back-to-top {
+
+      position: fixed;
+
+      bottom: 90px;
+
+      right: 20px;
+
+      width: 50px;
+
+      height: 50px;
+
+      background: rgba(123, 75, 255, 0.9);
+
+      border-radius: 50%;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      cursor: pointer;
+
+      z-index: 99;
+
+      transition: all 0.3s ease;
+
+      border: 2px solid rgba(255, 255, 255, 0.2);
+
+    }
+
+    .back-to-top.visible {
+
+      display: flex;
+
+    }
+
+    .back-to-top:hover {
+
+      background: rgba(123, 75, 255, 1);
+
+      transform: translateY(-3px);
+
+    }
+
+    .back-to-top:active {
+
+      transform: translateY(-1px);
+
+    }
+
+
+
     /* RESPONSIVE - MOBILE FIRST */
 
 
@@ -1381,6 +1437,20 @@
     </svg>
 
   </a>
+
+
+
+  <!-- Bouton retour en haut -->
+
+  <div class="back-to-top" id="backToTop" aria-label="Retour en haut">
+
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+      <polyline points="18 15 12 9 6 15"></polyline>
+
+    </svg>
+
+  </div>
 
 
 
@@ -2273,6 +2343,42 @@
     document.querySelectorAll('.card, .teacher, .gallery-item').forEach(el => {
 
       observer.observe(el);
+
+    });
+
+
+
+    // Bouton retour en haut
+
+    const backToTop = document.getElementById('backToTop');
+
+    
+
+    window.addEventListener('scroll', () => {
+
+      if (window.scrollY > 500) {
+
+        backToTop.classList.add('visible');
+
+      } else {
+
+        backToTop.classList.remove('visible');
+
+      }
+
+    });
+
+
+
+    backToTop.addEventListener('click', () => {
+
+      window.scrollTo({
+
+        top: 0,
+
+        behavior: 'smooth'
+
+      });
 
     });
 
