@@ -86,6 +86,8 @@
 
       padding: 0 1rem;
 
+      width: 100%;
+
     }
 
 
@@ -266,6 +268,8 @@
 
       padding: 2rem 0 2.5rem;
 
+      position: relative;
+
     }
 
 
@@ -290,7 +294,7 @@
 
       position: relative;
 
-      overflow: hidden;
+      overflow: visible;
 
     }
 
@@ -358,17 +362,23 @@
 
       position: relative;
 
-      min-height: 140px;
+      min-height: 180px;
 
       border-radius: 24px;
 
-      background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.35), transparent 55%),
+      background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.2), transparent 60%),
 
-        radial-gradient(circle at 80% 90%, rgba(0, 0, 0, 0.5), transparent 60%);
+        radial-gradient(circle at 80% 90%, rgba(0, 0, 0, 0.3), transparent 70%);
 
-      overflow: hidden;
+      overflow: visible;
 
-      margin-top: 1rem;
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 0.5rem;
 
     }
 
@@ -380,35 +390,39 @@
 
       position: absolute;
 
-      width: 35%;
+      width: 80px;
 
-      height: 120%;
+      height: 200px;
 
-      top: -10%;
+      border-radius: 40px;
 
-      border-radius: 50px;
+      background: linear-gradient(180deg, #ff4b9b 0%, rgba(255, 75, 155, 0.8) 50%, rgba(255, 255, 255, 0.3) 100%);
 
-      background: linear-gradient(180deg, rgba(255, 75, 155, 0.95), rgba(255, 255, 255, 0.15));
+      filter: blur(2px);
 
-      filter: blur(1px);
+      opacity: 1;
 
-      opacity: 0.9;
+      z-index: 1;
 
     }
 
     .hero-silhouette::before {
 
-      left: 5%;
+      left: 15%;
 
-      transform: rotate(-15deg);
+      transform: rotate(-18deg);
+
+      top: -20px;
 
     }
 
     .hero-silhouette::after {
 
-      right: 5%;
+      right: 15%;
 
-      transform: rotate(12deg);
+      transform: rotate(15deg);
+
+      top: -20px;
 
     }
 
@@ -418,21 +432,23 @@
 
       left: 50%;
 
-      transform: translateX(-50%) rotate(5deg);
+      transform: translateX(-50%) rotate(8deg);
 
-      width: 30%;
+      width: 70px;
 
-      height: 110%;
+      height: 180px;
 
-      top: -5%;
+      top: -10px;
 
-      border-radius: 50px;
+      border-radius: 35px;
 
-      background: linear-gradient(180deg, rgba(255, 75, 155, 0.9), rgba(255, 255, 255, 0.1));
+      background: linear-gradient(180deg, #ff4b9b 0%, rgba(255, 75, 155, 0.85) 50%, rgba(255, 255, 255, 0.25) 100%);
 
-      filter: blur(1px);
+      filter: blur(2px);
 
-      opacity: 0.85;
+      opacity: 1;
+
+      z-index: 2;
 
     }
 
@@ -506,6 +522,8 @@
 
       padding: 3rem 0;
 
+      position: relative;
+
     }
 
 
@@ -514,7 +532,13 @@
 
       text-align: center;
 
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
+
+      max-width: 700px;
+
+      margin-left: auto;
+
+      margin-right: auto;
 
     }
 
@@ -544,9 +568,9 @@
 
       display: grid;
 
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      grid-template-columns: 1fr;
 
-      gap: 2.5rem;
+      gap: 2rem;
 
       align-items: start;
 
@@ -604,7 +628,7 @@
 
       display: grid;
 
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: 1fr;
 
       gap: 1.5rem;
 
@@ -658,7 +682,7 @@
 
       display: grid;
 
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
 
       gap: 1.4rem;
 
@@ -746,7 +770,7 @@
 
       display: grid;
 
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      grid-template-columns: 1fr;
 
       gap: 2rem;
 
@@ -846,7 +870,7 @@
 
       display: grid;
 
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
       gap: 0.8rem;
 
@@ -880,7 +904,7 @@
 
       display: grid;
 
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      grid-template-columns: 1fr;
 
       gap: 2rem;
 
@@ -1129,42 +1153,6 @@
       nav ul {
 
         display: none;
-
-      }
-
-
-
-      .two-cols,
-
-      .pricing-grid,
-
-      .contact-grid {
-
-        grid-template-columns: 1fr;
-
-      }
-
-
-
-      .cards {
-
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-      }
-
-
-
-      .teachers {
-
-        grid-template-columns: 1fr;
-
-      }
-
-
-
-      nav ul {
-
-        display: none; /* simple : pas de menu complexe sur mobile */
 
       }
 
