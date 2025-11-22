@@ -76,19 +76,25 @@
 
       position: fixed;
 
-      left: 15%;
+      left: 12%;
 
       top: 50%;
 
       transform: translateY(-50%);
 
-      width: 600px;
+      width: 520px;
 
-      height: 900px;
+      height: 820px;
 
       z-index: 0;
 
       pointer-events: none;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
 
     }
 
@@ -98,9 +104,7 @@
 
       position: absolute;
 
-      width: 100%;
-
-      height: 100%;
+      inset: 0;
 
       background-color: #ff4b9b;
 
@@ -112,6 +116,8 @@
 
       mask-position: center;
 
+      mask-mode: luminance;
+
       -webkit-mask-image: url("33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg");
 
       -webkit-mask-size: contain;
@@ -120,7 +126,35 @@
 
       -webkit-mask-position: center;
 
-      opacity: 0.25;
+      -webkit-mask-mode: luminance;
+
+      opacity: 0.35;
+
+      filter: drop-shadow(0 0 25px rgba(255, 75, 155, 0.35));
+
+    }
+
+    @supports not (mask-image: url("")) {
+
+      .dancer-silhouette-main::before {
+
+        background-color: transparent;
+
+        background-image: url("33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg");
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        background-position: center;
+
+        filter: brightness(0) sepia(100%) saturate(10000%) hue-rotate(310deg);
+
+        mix-blend-mode: screen;
+
+        opacity: 0.25;
+
+      }
 
     }
 
