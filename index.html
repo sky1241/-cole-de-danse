@@ -6,11 +6,39 @@
 
   <meta charset="UTF-8" />
 
-  <title>浩颜搏击舞营 - 舞蹈训练营</title>
+  <title>浩颜搏击舞营 - 舞蹈训练营 | 成都街舞培训 | 儿童成人舞蹈课程</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="description" content="浩颜搏击舞营 - 舞蹈与搏击训练营，儿童与成人课程。" />
+  <meta name="description" content="浩颜搏击舞营 - 成都专业舞蹈与街舞训练营，提供儿童、青少年、成人舞蹈课程。街舞、基础舞蹈、体能训练，小班教学，专业师资。电话：+86 155-2830-2653" />
+
+  <meta name="keywords" content="成都舞蹈培训,街舞培训,儿童舞蹈,成人舞蹈,青少年街舞,舞蹈训练营,浩颜搏击舞营,舞蹈课程,Hip-Hop培训" />
+
+  
+
+  <!-- Baidu SEO -->
+
+  <meta name="baidu-site-verification" content="待验证" />
+
+  <meta name="renderer" content="webkit" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <meta name="mobile-agent" content="format=html5; url=https://sky1241.github.io/-cole-de-danse/" />
+
+  
+
+  <!-- Open Graph pour partage sur réseaux sociaux chinois -->
+
+  <meta property="og:title" content="浩颜搏击舞营 - 舞蹈训练营" />
+
+  <meta property="og:description" content="成都专业舞蹈与街舞训练营，儿童、青少年、成人课程" />
+
+  <meta property="og:type" content="website" />
+
+  <meta property="og:url" content="https://sky1241.github.io/-cole-de-danse/" />
+
+  <meta property="og:image" content="https://sky1241.github.io/-cole-de-danse/elle.jpg" />
 
   <style>
 
@@ -110,15 +138,31 @@
 
       .dancer-silhouette-wrapper {
 
-        left: -30%;
+        left: -20%;
 
-        top: 50%;
+        top: 40%;
 
         transform: translateY(-50%);
 
-        width: 700px;
+        width: 600px;
 
-        height: 1050px;
+        height: 900px;
+
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .dancer-silhouette-wrapper {
+
+        left: -15%;
+
+        top: 35%;
+
+        width: 500px;
+
+        height: 750px;
 
       }
 
@@ -1794,23 +1838,29 @@
 
         <div class="contact-grid">
 
-          <form>
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 
             <label for="name">姓名 Nom</label>
 
-            <input id="name" type="text" placeholder="您的名字 / Votre nom" />
+            <input id="name" name="name" type="text" placeholder="您的名字 / Votre nom" required />
 
 
 
             <label for="phone">电话 Téléphone</label>
 
-            <input id="phone" type="tel" placeholder="您的联系方式 / Votre numéro" />
+            <input id="phone" name="phone" type="tel" placeholder="您的联系方式 / Votre numéro" required />
+
+
+
+            <label for="wechat">微信 WeChat (可选)</label>
+
+            <input id="wechat" name="wechat" type="text" placeholder="您的微信号 / Votre WeChat ID" />
 
 
 
             <label for="message">留言 Message</label>
 
-            <textarea id="message" placeholder="想上的课程、方便联系的时间等…"></textarea>
+            <textarea id="message" name="message" placeholder="想上的课程、方便联系的时间等…" required></textarea>
 
 
 
@@ -1834,7 +1884,13 @@
 
             <p><strong>电话 Téléphone</strong><br />
 
-              +86 155-2830-2653
+              <a href="tel:+8615528302653" style="color: var(--accent); text-decoration: underline;">+86 155-2830-2653</a>
+
+            </p>
+
+            <p><strong>微信 WeChat</strong><br />
+
+              扫码添加微信咨询 (à ajouter)
 
             </p>
 
@@ -1846,9 +1902,19 @@
 
             <p style="margin-top:0.8rem;">
 
-              如需导航，可在此处嵌入高德 / 百度 / Google 地图链接。
+              <a href="#" style="color: var(--accent);" target="_blank">📍 百度地图导航</a><br />
+
+              <small style="opacity: 0.7;">（在这里可以嵌入百度地图链接）</small>
 
             </p>
+
+            <div style="margin-top: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+
+              <a href="#" class="btn btn-outline" style="font-size: 0.75rem; padding: 0.5rem 1rem;">微信咨询</a>
+
+              <a href="tel:+8615528302653" class="btn btn-outline" style="font-size: 0.75rem; padding: 0.5rem 1rem;">电话咨询</a>
+
+            </div>
 
           </div>
 
@@ -1864,9 +1930,99 @@
 
   <footer>
 
-    © 浩颜搏击舞营 · 舞蹈训练营 – Tous droits réservés
+    <div class="container">
+
+      <p>© 浩颜搏击舞营 · 舞蹈训练营 – Tous droits réservés</p>
+
+      <p style="margin-top: 0.5rem; font-size: 0.7rem;">
+
+        电话：<a href="tel:+8615528302653" style="color: var(--accent);">+86 155-2830-2653</a> | 
+
+        成都市 · Chengdu, Sichuan
+
+      </p>
+
+    </div>
 
   </footer>
+
+
+
+  <!-- Données structurées pour Baidu et référencement local -->
+
+  <script type="application/ld+json">
+
+  {
+
+    "@context": "https://schema.org",
+
+    "@type": "DanceSchool",
+
+    "name": "浩颜搏击舞营",
+
+    "alternateName": "Haoyan Dance Studio",
+
+    "description": "成都专业舞蹈与街舞训练营，提供儿童、青少年、成人舞蹈课程",
+
+    "telephone": "+86-155-2830-2653",
+
+    "address": {
+
+      "@type": "PostalAddress",
+
+      "addressLocality": "Chengdu",
+
+      "addressRegion": "Sichuan",
+
+      "addressCountry": "CN"
+
+    },
+
+    "geo": {
+
+      "@type": "GeoCoordinates",
+
+      "latitude": "30.5728",
+
+      "longitude": "104.0668"
+
+    },
+
+    "url": "https://sky1241.github.io/-cole-de-danse/",
+
+    "image": "https://sky1241.github.io/-cole-de-danse/elle.jpg",
+
+    "priceRange": "¥¥",
+
+    "openingHours": "Tu-Su"
+
+  }
+
+  </script>
+
+
+
+  <!-- Baidu Analytics (à configurer avec votre ID) -->
+
+  <script>
+
+    var _hmt = _hmt || [];
+
+    (function() {
+
+      // Remplacez 'YOUR_BAIDU_ANALYTICS_ID' par votre vrai ID Baidu Analytics
+
+      // var hm = document.createElement("script");
+
+      // hm.src = "https://hm.baidu.com/hm.js?YOUR_BAIDU_ANALYTICS_ID";
+
+      // var s = document.getElementsByTagName("script")[0]; 
+
+      // s.parentNode.insertBefore(hm, s);
+
+    })();
+
+  </script>
 
 </body>
 
