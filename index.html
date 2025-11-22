@@ -296,6 +296,8 @@
 
       overflow: visible;
 
+      min-height: 200px;
+
     }
 
 
@@ -378,8 +380,6 @@
 
       justify-content: center;
 
-      gap: 0.5rem;
-
     }
 
     .hero-silhouette::before,
@@ -390,39 +390,41 @@
 
       position: absolute;
 
-      width: 80px;
+      width: 100px;
 
-      height: 200px;
+      height: 220px;
 
-      border-radius: 40px;
+      border-radius: 50px;
 
-      background: linear-gradient(180deg, #ff4b9b 0%, rgba(255, 75, 155, 0.8) 50%, rgba(255, 255, 255, 0.3) 100%);
+      background: linear-gradient(180deg, #ff4b9b 0%, #ff4b9b 40%, rgba(255, 75, 155, 0.9) 70%, rgba(255, 255, 255, 0.4) 100%);
 
-      filter: blur(2px);
+      filter: blur(1.5px);
 
       opacity: 1;
 
       z-index: 1;
 
+      box-shadow: 0 0 20px rgba(255, 75, 155, 0.6);
+
     }
 
     .hero-silhouette::before {
 
-      left: 15%;
+      left: 10%;
 
-      transform: rotate(-18deg);
+      transform: rotate(-20deg);
 
-      top: -20px;
+      top: -30px;
 
     }
 
     .hero-silhouette::after {
 
-      right: 15%;
+      right: 10%;
 
-      transform: rotate(15deg);
+      transform: rotate(18deg);
 
-      top: -20px;
+      top: -30px;
 
     }
 
@@ -432,23 +434,25 @@
 
       left: 50%;
 
-      transform: translateX(-50%) rotate(8deg);
+      transform: translateX(-50%) rotate(6deg);
 
-      width: 70px;
+      width: 85px;
 
-      height: 180px;
+      height: 200px;
 
-      top: -10px;
+      top: -25px;
 
-      border-radius: 35px;
+      border-radius: 42px;
 
-      background: linear-gradient(180deg, #ff4b9b 0%, rgba(255, 75, 155, 0.85) 50%, rgba(255, 255, 255, 0.25) 100%);
+      background: linear-gradient(180deg, #ff4b9b 0%, #ff4b9b 35%, rgba(255, 75, 155, 0.95) 65%, rgba(255, 255, 255, 0.35) 100%);
 
-      filter: blur(2px);
+      filter: blur(1.5px);
 
       opacity: 1;
 
       z-index: 2;
+
+      box-shadow: 0 0 20px rgba(255, 75, 155, 0.6);
 
     }
 
