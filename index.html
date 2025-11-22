@@ -64,6 +64,146 @@
 
       line-height: 1.6;
 
+      position: relative;
+
+      overflow-x: hidden;
+
+    }
+
+    /* Silhouettes de danseuses en arrière-plan */
+
+    body::before {
+
+      content: "";
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      z-index: 0;
+
+      pointer-events: none;
+
+      opacity: 0.25;
+
+    }
+
+    .dancer-silhouette-1,
+
+    .dancer-silhouette-2,
+
+    .dancer-silhouette-3,
+
+    .dancer-silhouette-4 {
+
+      position: fixed;
+
+      width: 0;
+
+      height: 0;
+
+      z-index: 0;
+
+      pointer-events: none;
+
+      opacity: 0.3;
+
+    }
+
+    .dancer-silhouette-1::before,
+
+    .dancer-silhouette-2::before,
+
+    .dancer-silhouette-3::before,
+
+    .dancer-silhouette-4::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 100px;
+
+      height: 220px;
+
+      background: linear-gradient(180deg, #ff4b9b 0%, rgba(255, 75, 155, 0.8) 50%, rgba(255, 75, 155, 0.4) 100%);
+
+      border-radius: 50px 50px 25px 25px;
+
+      filter: blur(4px);
+
+      box-shadow: 0 0 40px rgba(255, 75, 155, 0.5);
+
+    }
+
+    .dancer-silhouette-1 {
+
+      left: 12%;
+
+      top: 20%;
+
+      transform: rotate(-15deg);
+
+    }
+
+    .dancer-silhouette-1::before {
+
+      clip-path: polygon(30% 0%, 70% 0%, 75% 25%, 70% 50%, 65% 75%, 60% 100%, 40% 100%, 35% 75%, 30% 50%, 25% 25%);
+
+    }
+
+    .dancer-silhouette-2 {
+
+      left: 35%;
+
+      top: 55%;
+
+      transform: rotate(10deg);
+
+    }
+
+    .dancer-silhouette-2::before {
+
+      clip-path: polygon(35% 0%, 65% 0%, 70% 20%, 68% 45%, 65% 70%, 62% 100%, 38% 100%, 35% 70%, 32% 45%, 30% 20%);
+
+    }
+
+    .dancer-silhouette-3 {
+
+      right: 12%;
+
+      top: 25%;
+
+      transform: rotate(18deg);
+
+    }
+
+    .dancer-silhouette-3::before {
+
+      clip-path: polygon(28% 0%, 72% 0%, 75% 22%, 72% 48%, 68% 72%, 65% 100%, 35% 100%, 32% 72%, 28% 48%, 25% 22%);
+
+    }
+
+    .dancer-silhouette-4 {
+
+      right: 28%;
+
+      top: 70%;
+
+      transform: rotate(-12deg);
+
+    }
+
+    .dancer-silhouette-4::before {
+
+      clip-path: polygon(32% 0%, 68% 0%, 72% 25%, 70% 50%, 67% 75%, 63% 100%, 37% 100%, 33% 75%, 30% 50%, 28% 25%);
+
     }
 
 
@@ -73,6 +213,14 @@
       color: inherit;
 
       text-decoration: none;
+
+    }
+
+    main {
+
+      position: relative;
+
+      z-index: 1;
 
     }
 
@@ -360,11 +508,11 @@
 
 
 
-    .hero-silhouette {
+    .hero-contact {
 
       position: relative;
 
-      min-height: 200px;
+      min-height: 140px;
 
       border-radius: 24px;
 
@@ -378,71 +526,9 @@
 
       align-items: center;
 
-      justify-content: space-around;
+      justify-content: center;
 
       padding: 1rem;
-
-    }
-
-    .silhouette-left,
-
-    .silhouette-center,
-
-    .silhouette-right {
-
-      position: absolute;
-
-      width: 120px;
-
-      height: 240px;
-
-      background: linear-gradient(180deg, #ff4b9b 0%, #ff4b9b 30%, rgba(255, 75, 155, 0.95) 60%, rgba(255, 255, 255, 0.5) 100%);
-
-      border-radius: 60px;
-
-      filter: blur(2px);
-
-      opacity: 1;
-
-      z-index: 1;
-
-      box-shadow: 0 0 30px rgba(255, 75, 155, 0.8), 0 0 60px rgba(255, 75, 155, 0.4);
-
-    }
-
-    .silhouette-left {
-
-      left: 5%;
-
-      transform: rotate(-22deg);
-
-      top: -40px;
-
-    }
-
-    .silhouette-center {
-
-      left: 50%;
-
-      transform: translateX(-50%) rotate(8deg);
-
-      top: -35px;
-
-      width: 100px;
-
-      height: 220px;
-
-      z-index: 2;
-
-    }
-
-    .silhouette-right {
-
-      right: 5%;
-
-      transform: rotate(20deg);
-
-      top: -40px;
 
     }
 
@@ -1044,9 +1130,9 @@
 
       }
 
-      .hero-silhouette {
+      .hero-contact {
 
-        min-height: 180px;
+        min-height: 140px;
 
       }
 
@@ -1108,29 +1194,9 @@
 
 
 
-      .hero-silhouette {
+      .hero-contact {
 
-        min-height: 180px;
-
-      }
-
-      .silhouette-left,
-
-      .silhouette-center,
-
-      .silhouette-right {
-
-        width: 80px;
-
-        height: 180px;
-
-      }
-
-      .silhouette-center {
-
-        width: 70px;
-
-        height: 160px;
+        min-height: 120px;
 
       }
 
@@ -1200,29 +1266,9 @@
 
       }
 
-      .hero-silhouette {
+      .hero-contact {
 
-        min-height: 160px;
-
-      }
-
-      .silhouette-left,
-
-      .silhouette-center,
-
-      .silhouette-right {
-
-        width: 60px;
-
-        height: 140px;
-
-      }
-
-      .silhouette-center {
-
-        width: 55px;
-
-        height: 130px;
+        min-height: 100px;
 
       }
 
@@ -1233,6 +1279,16 @@
 </head>
 
 <body>
+
+  <!-- Silhouettes de danseuses en arrière-plan -->
+
+  <div class="dancer-silhouette-1"></div>
+
+  <div class="dancer-silhouette-2"></div>
+
+  <div class="dancer-silhouette-3"></div>
+
+  <div class="dancer-silhouette-4"></div>
 
   <header>
 
@@ -1296,13 +1352,7 @@
 
           </div>
 
-          <div class="hero-silhouette">
-
-            <div class="silhouette-left"></div>
-
-            <div class="silhouette-center"></div>
-
-            <div class="silhouette-right"></div>
+          <div class="hero-contact">
 
             <div class="hero-overlay-line"></div>
 
