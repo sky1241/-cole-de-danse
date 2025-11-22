@@ -1074,6 +1074,54 @@
 
 
 
+    /* FAQ */
+
+    .faq-list {
+
+      display: grid;
+
+      grid-template-columns: 1fr;
+
+      gap: 1rem;
+
+      max-width: 800px;
+
+      margin: 0 auto;
+
+    }
+
+    .faq-item {
+
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+
+    }
+
+    .faq-item:hover {
+
+      transform: translateX(5px);
+
+      border-color: rgba(123, 75, 255, 0.3);
+
+    }
+
+    @media (min-width: 768px) {
+
+      .faq-list {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 1.5rem;
+
+        max-width: 100%;
+
+      }
+
+    }
+
+
+
     /* CONTACT */
 
 
@@ -2171,6 +2219,82 @@
           <div class="gallery-item"></div>
 
           <div class="gallery-item"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- FAQ -->
+
+    <section id="faq">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2 class="section-title">常见问题 · FAQ</h2>
+
+          <p class="section-sub">
+
+            关于课程、报名、收费的常见问题解答
+
+          </p>
+
+        </div>
+
+        <div class="faq-list">
+
+          <div class="card faq-item">
+
+            <h3 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent);">❓ 零基础可以报名吗？</h3>
+
+            <p style="font-size: 0.9rem; color: var(--text-light);">
+
+              可以！我们的课程专门为不同水平设计，包括零基础学员。老师会根据您的情况调整教学进度。
+
+            </p>
+
+          </div>
+
+          <div class="card faq-item">
+
+            <h3 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent);">❓ 需要自己准备什么装备吗？</h3>
+
+            <p style="font-size: 0.9rem; color: var(--text-light);">
+
+              建议穿着舒适的运动服和运动鞋。我们提供更衣室和储物柜，无需携带过多物品。
+
+            </p>
+
+          </div>
+
+          <div class="card faq-item">
+
+            <h3 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent);">❓ 可以先体验一节课吗？</h3>
+
+            <p style="font-size: 0.9rem; color: var(--text-light);">
+
+              当然可以！我们提供免费体验课。请提前联系我们预约时间。
+
+            </p>
+
+          </div>
+
+          <div class="card faq-item">
+
+            <h3 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent);">❓ 每个班级有多少学员？</h3>
+
+            <p style="font-size: 0.9rem; color: var(--text-light);">
+
+              我们采用小班教学，每班6-12人，确保老师能够照顾到每一位学员。
+
+            </p>
+
+          </div>
 
         </div>
 
