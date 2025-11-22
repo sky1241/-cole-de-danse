@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <title>浩颜搏击舞营 - 舞蹈训练营</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="description" content="浩颜搏击舞营 - 舞蹈与搏击训练营，儿童与成人课程。" />
+
+  <style>
+
+    :root {
+
+      /* 🎨 Couleurs basées sur la banderole violette/rose */
+
+      --primary: #7b4bff;    /* violet néon */
+
+      --secondary: #05030b;  /* fond très sombre */
+
+      --accent: #ff4b9b;     /* rose fuchsia silhouettes */
+
+      --bg: #05030b;
+
+      --muted: #151526;
+
+      --text: #ffffff;
+
+      --text-light: #c2c2dd;
+
+      --radius: 16px;
+
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+
+    }
+
+
+
+    * {
+
+      box-sizing: border-box;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+
+
+
+    body {
+
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+
+        sans-serif;
+
+      background: radial-gradient(circle at top, #1c1040 0, #05030b 45%, #000 100%);
+
+      color: var(--text);
+
+      line-height: 1.6;
+
+    }
+
+
+
+    a {
+
+      color: inherit;
+
+      text-decoration: none;
+
+    }
+
+
+
+    .container {
+
+      max-width: 1100px;
+
+      margin: 0 auto;
+
+      padding: 0 1.5rem;
+
+    }
+
+
+
+    /* HEADER */
+
+
+
+    header {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 10;
+
+      background: rgba(5, 3, 11, 0.92);
+
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+    }
+
+
+
+    .nav {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 0.75rem 0;
+
+    }
+
+
+
+    .logo {
+
+      display: flex;
+
+      flex-direction: column;
+
+    }
+
+
+
+    .logo-main {
+
+      font-size: 1.6rem;
+
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+
+    }
+
+
+
+    .logo-sub {
+
+      font-size: 0.75rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.28em;
+
+      color: var(--text-light);
+
+    }
+
+
+
+    nav ul {
+
+      display: flex;
+
+      gap: 1.25rem;
+
+      font-size: 0.9rem;
+
+    }
+
+
+
+    nav a {
+
+      padding-bottom: 0.2rem;
+
+      border-bottom: 2px solid transparent;
+
+    }
+
+
+
+    nav a:hover {
+
+      border-color: var(--accent);
+
+    }
+
+
+
+    .nav-phone {
+
+      font-size: 0.85rem;
+
+      color: var(--text-light);
+
+    }
+
+
+
+    /* BOUTONS */
+
+
+
+    .btn {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 0.8rem 1.6rem;
+
+      border-radius: 999px;
+
+      border: none;
+
+      cursor: pointer;
+
+      font-size: 0.9rem;
+
+      font-weight: 600;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.12em;
+
+    }
+
+
+
+    .btn-primary {
+
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+
+      color: white;
+
+      box-shadow: var(--shadow);
+
+    }
+
+
+
+    .btn-outline {
+
+      background: transparent;
+
+      border: 1px solid var(--primary);
+
+      color: var(--text);
+
+    }
+
+
+
+    /* HERO façon banderole */
+
+
+
+    .hero {
+
+      padding: 3.5rem 0 3rem;
+
+    }
+
+
+
+    .hero-banner {
+
+      border-radius: 999px;
+
+      background: linear-gradient(120deg, #7b4bff, #b14bff, #ff4b9b);
+
+      padding: 2.2rem 2.4rem;
+
+      display: grid;
+
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+
+      gap: 2rem;
+
+      align-items: center;
+
+      box-shadow: var(--shadow);
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+
+
+    .hero-cn {
+
+      font-size: 2.6rem;
+
+      letter-spacing: 0.18em;
+
+      margin-bottom: 0.5rem;
+
+      text-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+
+    }
+
+
+
+    .hero-subtitle {
+
+      font-size: 0.95rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.28em;
+
+      color: rgba(255, 255, 255, 0.85);
+
+      margin-bottom: 1.6rem;
+
+    }
+
+
+
+    .hero-text {
+
+      font-size: 0.95rem;
+
+      max-width: 480px;
+
+    }
+
+
+
+    .hero-actions {
+
+      margin-top: 1.6rem;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 0.9rem;
+
+    }
+
+
+
+    .hero-silhouette {
+
+      position: relative;
+
+      min-height: 180px;
+
+      border-radius: 32px;
+
+      background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.35), transparent 55%),
+
+        radial-gradient(circle at 80% 90%, rgba(0, 0, 0, 0.5), transparent 60%);
+
+      overflow: hidden;
+
+    }
+
+
+
+    .hero-silhouette::before,
+
+    .hero-silhouette::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 40%;
+
+      height: 140%;
+
+      top: -10%;
+
+      border-radius: 60px;
+
+      background: linear-gradient(180deg, rgba(255, 75, 155, 0.9), rgba(255, 255, 255, 0.1));
+
+      filter: blur(1px);
+
+      opacity: 0.9;
+
+    }
+
+
+
+    .hero-silhouette::before {
+
+      left: 5%;
+
+      transform: rotate(-12deg);
+
+    }
+
+
+
+    .hero-silhouette::after {
+
+      right: 5%;
+
+      transform: rotate(10deg);
+
+    }
+
+
+
+    .hero-overlay-line {
+
+      position: absolute;
+
+      bottom: 20px;
+
+      left: 12%;
+
+      right: 10%;
+
+      height: 2px;
+
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgba(255, 75, 155, 1));
+
+      opacity: 0.9;
+
+    }
+
+
+
+    .hero-phone {
+
+      position: absolute;
+
+      bottom: 32px;
+
+      left: 14%;
+
+      font-size: 0.9rem;
+
+      font-weight: 600;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 0.4rem;
+
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+
+    }
+
+
+
+    .hero-phone-circle {
+
+      width: 30px;
+
+      height: 30px;
+
+      border-radius: 50%;
+
+      border: 2px solid white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 0.8rem;
+
+    }
+
+
+
+    /* SECTIONS GÉNÉRALES */
+
+
+
+    section {
+
+      padding: 3.5rem 0;
+
+    }
+
+
+
+    .section-header {
+
+      text-align: center;
+
+      margin-bottom: 2rem;
+
+    }
+
+
+
+    .section-title {
+
+      font-size: 1.6rem;
+
+      margin-bottom: 0.5rem;
+
+    }
+
+
+
+    .section-sub {
+
+      font-size: 0.9rem;
+
+      color: var(--text-light);
+
+    }
+
+
+
+    .two-cols {
+
+      display: grid;
+
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+
+      gap: 2.5rem;
+
+      align-items: start;
+
+    }
+
+
+
+    .card {
+
+      background: rgba(21, 21, 38, 0.98);
+
+      border-radius: var(--radius);
+
+      padding: 1.3rem 1.4rem;
+
+      box-shadow: var(--shadow);
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      font-size: 0.9rem;
+
+    }
+
+
+
+    .pill {
+
+      display: inline-block;
+
+      padding: 0.2rem 0.7rem;
+
+      font-size: 0.75rem;
+
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.06);
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.16em;
+
+      color: var(--text-light);
+
+      margin-bottom: 0.5rem;
+
+    }
+
+
+
+    /* COURS */
+
+
+
+    .cards {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      gap: 1.5rem;
+
+    }
+
+
+
+    .card h3 {
+
+      font-size: 1.1rem;
+
+      margin-bottom: 0.7rem;
+
+    }
+
+
+
+    .card ul {
+
+      list-style: none;
+
+      margin-bottom: 1rem;
+
+    }
+
+
+
+    .card li {
+
+      margin-bottom: 0.35rem;
+
+    }
+
+
+
+    .card li::before {
+
+      content: "• ";
+
+      color: var(--accent);
+
+    }
+
+
+
+    /* PROFESSEURS */
+
+
+
+    .teachers {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 1.4rem;
+
+    }
+
+
+
+    .teacher {
+
+      display: flex;
+
+      gap: 1rem;
+
+      align-items: flex-start;
+
+      background: rgba(21, 21, 38, 0.98);
+
+      padding: 1rem 1.2rem;
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+    }
+
+
+
+    .avatar {
+
+      width: 64px;
+
+      height: 64px;
+
+      border-radius: 50%;
+
+      background: radial-gradient(circle at 30% 20%, #ffbfdc, #7b4bff);
+
+    }
+
+
+
+    .teacher-role {
+
+      font-size: 0.75rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.18em;
+
+      color: var(--accent);
+
+      margin-bottom: 0.2rem;
+
+    }
+
+
+
+    .teacher-name {
+
+      font-weight: 600;
+
+      margin-bottom: 0.2rem;
+
+    }
+
+
+
+    .teacher-bio {
+
+      font-size: 0.85rem;
+
+      color: var(--text-light);
+
+    }
+
+
+
+    /* HORAIRES / TARIFS */
+
+
+
+    .pricing-grid {
+
+      display: grid;
+
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+
+      gap: 2rem;
+
+      align-items: start;
+
+    }
+
+
+
+    .schedule-table {
+
+      width: 100%;
+
+      border-collapse: collapse;
+
+      font-size: 0.85rem;
+
+      background: rgba(21, 21, 38, 0.98);
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+
+    }
+
+
+
+    .schedule-table th,
+
+    .schedule-table td {
+
+      padding: 0.7rem 0.9rem;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+      text-align: left;
+
+    }
+
+
+
+    .schedule-table th {
+
+      background: rgba(255, 255, 255, 0.04);
+
+      font-weight: 600;
+
+    }
+
+
+
+    .pricing-box {
+
+      background: rgba(21, 21, 38, 0.98);
+
+      border-radius: var(--radius);
+
+      padding: 1.4rem;
+
+      box-shadow: var(--shadow);
+
+      font-size: 0.85rem;
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+    }
+
+
+
+    .pricing-item {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      margin-bottom: 0.6rem;
+
+    }
+
+
+
+    .pricing-item span:last-child {
+
+      font-weight: 600;
+
+    }
+
+
+
+    /* GALERIE */
+
+
+
+    .gallery-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      gap: 0.8rem;
+
+    }
+
+
+
+    .gallery-item {
+
+      background: radial-gradient(circle at 20% 0, #ffbfdc, #7b4bff);
+
+      border-radius: 14px;
+
+      padding-top: 70%;
+
+      position: relative;
+
+      overflow: hidden;
+
+      opacity: 0.9;
+
+    }
+
+
+
+    /* CONTACT */
+
+
+
+    .contact-grid {
+
+      display: grid;
+
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+
+      gap: 2rem;
+
+    }
+
+
+
+    form {
+
+      background: rgba(21, 21, 38, 0.98);
+
+      padding: 1.5rem;
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+
+      font-size: 0.9rem;
+
+      border: 1px solid rgba(255, 255, 255, 0.06);
+
+    }
+
+
+
+    label {
+
+      display: block;
+
+      margin-bottom: 0.25rem;
+
+      font-weight: 500;
+
+    }
+
+
+
+    input,
+
+    textarea {
+
+      width: 100%;
+
+      padding: 0.6rem 0.7rem;
+
+      margin-bottom: 0.9rem;
+
+      border-radius: 10px;
+
+      border: 1px solid rgba(255, 255, 255, 0.15);
+
+      background: rgba(5, 3, 11, 0.9);
+
+      color: var(--text);
+
+      font: inherit;
+
+    }
+
+
+
+    textarea {
+
+      min-height: 120px;
+
+      resize: vertical;
+
+    }
+
+
+
+    .contact-info {
+
+      font-size: 0.85rem;
+
+      color: var(--text-light);
+
+    }
+
+
+
+    .contact-info p {
+
+      margin-bottom: 0.6rem;
+
+    }
+
+
+
+    footer {
+
+      padding: 1.5rem 0 2rem;
+
+      font-size: 0.75rem;
+
+      color: var(--text-light);
+
+      text-align: center;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+      margin-top: 2rem;
+
+      background: rgba(5, 3, 11, 0.95);
+
+    }
+
+
+
+    /* RESPONSIVE */
+
+
+
+    @media (max-width: 900px) {
+
+      .hero-banner {
+
+        grid-template-columns: 1fr;
+
+        border-radius: 32px;
+
+      }
+
+
+
+      .hero-silhouette {
+
+        min-height: 150px;
+
+      }
+
+
+
+      .two-cols,
+
+      .pricing-grid,
+
+      .contact-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+
+      .cards {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      }
+
+
+
+      .teachers {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+
+      nav ul {
+
+        display: none; /* simple : pas de menu complexe sur mobile */
+
+      }
+
+    }
+
+
+
+    @media (max-width: 600px) {
+
+      .cards,
+
+      .gallery-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+
+      .hero-cn {
+
+        font-size: 2rem;
+
+      }
+
+
+
+      .hero-banner {
+
+        padding: 1.8rem 1.6rem;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <div class="container nav">
+
+      <div class="logo">
+
+        <!-- 🔤 Change le nom ici si besoin -->
+
+        <span class="logo-main">浩颜搏击舞营</span>
+
+        <span class="logo-sub">舞蹈 · 街舞 · 训练营</span>
+
+      </div>
+
+      <div class="nav-phone">
+
+        <!-- ☎ Change le numéro ici -->
+
+        电话：+86 155-0000-0000
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+    <!-- HERO / BANNIÈRE -->
+
+    <section class="hero" id="accueil">
+
+      <div class="container">
+
+        <div class="hero-banner">
+
+          <div>
+
+            <div class="hero-cn">浩颜搏击舞营</div>
+
+            <div class="hero-subtitle">舞蹈 · 街舞 · 儿童与成人课程</div>
+
+            <p class="hero-text">
+
+              专注儿童、青少年与成人的舞蹈训练。街舞、基础舞蹈、体能训练，
+
+              在灯光与音乐中找到属于自己的节奏。
+
+            </p>
+
+            <div class="hero-actions">
+
+              <button class="btn btn-primary">预约体验课</button>
+
+              <button class="btn btn-outline">查看课程时间</button>
+
+            </div>
+
+          </div>
+
+          <div class="hero-silhouette">
+
+            <div class="hero-overlay-line"></div>
+
+            <div class="hero-phone">
+
+              <span class="hero-phone-circle">☎</span>
+
+              <span>+86 155-0000-0000</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- À PROPOS -->
+
+    <section id="apropos">
+
+      <div class="container two-cols">
+
+        <div>
+
+          <div class="section-header" style="text-align:left;">
+
+            <h2 class="section-title">关于舞馆 · À propos</h2>
+
+            <p class="section-sub">
+
+              一个小而精的舞蹈空间，让孩子和大人都能在音乐里放松、出汗、进步。
+
+            </p>
+
+          </div>
+
+          <p style="font-size:0.9rem; color:var(--text-light); margin-bottom:0.8rem;">
+
+            浩颜搏击舞营专注街舞、基础舞蹈与身体训练。我们希望，
+
+            不管是第一次接触舞蹈的孩子，还是想重拾兴趣的上班族，
+
+            都能在这里找到属于自己的节奏和舞台。
+
+          </p>
+
+          <p style="font-size:0.9rem; color:var(--text-light);">
+
+            小班教学、耐心细致的指导，让每一位学员都能被看见。
+
+            也可以根据需要参加小型汇演或比赛，感受真正的舞台氛围。
+
+          </p>
+
+        </div>
+
+        <div>
+
+          <div class="card">
+
+            <span class="pill">教学理念</span>
+
+            <h3 style="margin-bottom:0.6rem;">开心出汗 · 认真进步</h3>
+
+            <ul>
+
+              <li>尊重每个人的节奏与身体状态</li>
+
+              <li>在安全的前提下挑战自我</li>
+
+              <li>既有基础训练，也有编舞与表演</li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- COURS -->
+
+    <section id="cours">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2 class="section-title">课程介绍 · Cours</h2>
+
+          <p class="section-sub">
+
+            儿童、青少年、成人均可报名。以下为示例内容，可根据真实课程修改。
+
+          </p>
+
+        </div>
+
+        <div class="cards">
+
+          <div class="card">
+
+            <span class="pill">儿童</span>
+
+            <h3>少儿基础舞蹈</h3>
+
+            <ul>
+
+              <li>节奏与肢体协调</li>
+
+              <li>简单组合，培养兴趣</li>
+
+              <li>轻松有趣的课堂氛围</li>
+
+            </ul>
+
+            <button class="btn btn-outline">了解更多</button>
+
+          </div>
+
+          <div class="card">
+
+            <span class="pill">青少年</span>
+
+            <h3>街舞 / Hip-Hop</h3>
+
+            <ul>
+
+              <li>基础步伐与力量训练</li>
+
+              <li>编舞与团队配合</li>
+
+              <li>适合想"炸一炸"的学生</li>
+
+            </ul>
+
+            <button class="btn btn-outline">了解更多</button>
+
+          </div>
+
+          <div class="card">
+
+            <span class="pill">成人</span>
+
+            <h3>体能与舞感训练</h3>
+
+            <ul>
+
+              <li>舒展身体，释放压力</li>
+
+              <li>基础舞感与节奏训练</li>
+
+              <li>下班后轻松流汗一小时</li>
+
+            </ul>
+
+            <button class="btn btn-outline">了解更多</button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- PROFESSEURS -->
+
+    <section id="professeurs">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2 class="section-title">师资力量 · Professeurs</h2>
+
+          <p class="section-sub">
+
+            具有舞台经验和教学经验的老师，让课堂既专业又好玩。
+
+          </p>
+
+        </div>
+
+        <div class="teachers">
+
+          <div class="teacher">
+
+            <div class="avatar"></div>
+
+            <div>
+
+              <div class="teacher-role">馆长 / Direction</div>
+
+              <div class="teacher-name">这里写你女朋友的名字</div>
+
+              <div class="teacher-bio">
+
+                舞馆创始人，长期从事舞蹈与街舞教学。
+
+                擅长把枯燥的基础训练变成有趣的组合，
+
+                让学生在轻松的氛围里不断进步。
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="teacher">
+
+            <div class="avatar"></div>
+
+            <div>
+
+              <div class="teacher-role">老师 / Professeure</div>
+
+              <div class="teacher-name">第二位老师（如有）</div>
+
+              <div class="teacher-bio">
+
+                擅长少儿启蒙和青少年课程，注重节奏感和自信心的培养。
+
+                课堂氛围活跃，但同时保持清晰的纪律和结构。
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- HORAIRES & TARIFS -->
+
+    <section id="horaires">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2 class="section-title">课程时间 & 收费标准</h2>
+
+          <p class="section-sub">
+
+            以下为示例内容，可根据实际课表与价格自行修改。
+
+          </p>
+
+        </div>
+
+        <div class="pricing-grid">
+
+          <table class="schedule-table">
+
+            <thead>
+
+              <tr>
+
+                <th>星期 Jour</th>
+
+                <th>时间 Heure</th>
+
+                <th>课程 Cours</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+
+                <td>周二</td>
+
+                <td>18:00 – 19:00</td>
+
+                <td>少儿基础舞蹈</td>
+
+              </tr>
+
+              <tr>
+
+                <td>周四</td>
+
+                <td>19:00 – 20:30</td>
+
+                <td>街舞 / 青少年</td>
+
+              </tr>
+
+              <tr>
+
+                <td>周六</td>
+
+                <td>15:00 – 16:30</td>
+
+                <td>成人舞感 & 体能训练</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+          <div class="pricing-box">
+
+            <h3 style="margin-bottom:0.8rem;">收费示例 · Tarifs</h3>
+
+            <div class="pricing-item">
+
+              <span>体验课 Cours d'essai</span>
+
+              <span>免费 / Gratuit</span>
+
+            </div>
+
+            <div class="pricing-item">
+
+              <span>单节课程 Cours à l'unité</span>
+
+              <span>¥ xx</span>
+
+            </div>
+
+            <div class="pricing-item">
+
+              <span>包月（每周1次）</span>
+
+              <span>¥ xxx</span>
+
+            </div>
+
+            <div class="pricing-item">
+
+              <span>包月（每周2次）</span>
+
+              <span>¥ xxx</span>
+
+            </div>
+
+            <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.7rem;">
+
+              以上价格仅为示例，请根据实际情况修改。
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- GALERIE -->
+
+    <section id="galerie">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2 class="section-title">课堂与演出剪影 · Galerie</h2>
+
+          <p class="section-sub">
+
+            这里可以放课堂、排练、演出的照片。现在先用占位图代替。
+
+          </p>
+
+        </div>
+
+        <div class="gallery-grid">
+
+          <div class="gallery-item"></div>
+
+          <div class="gallery-item"></div>
+
+          <div class="gallery-item"></div>
+
+          <div class="gallery-item"></div>
+
+          <div class="gallery-item"></div>
+
+          <div class="gallery-item"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2 class="section-title">联系方式 · Contact</h2>
+
+          <p class="section-sub">
+
+            报名、咨询课程、预约体验课，都可以通过下方方式联系。
+
+          </p>
+
+        </div>
+
+        <div class="contact-grid">
+
+          <form>
+
+            <label for="name">姓名 Nom</label>
+
+            <input id="name" type="text" placeholder="您的名字 / Votre nom" />
+
+
+
+            <label for="phone">电话 Téléphone</label>
+
+            <input id="phone" type="tel" placeholder="您的联系方式 / Votre numéro" />
+
+
+
+            <label for="message">留言 Message</label>
+
+            <textarea id="message" placeholder="想上的课程、方便联系的时间等…"></textarea>
+
+
+
+            <button type="submit" class="btn btn-primary">
+
+              发送留言 · Envoyer
+
+            </button>
+
+          </form>
+
+          <div class="contact-info">
+
+            <p><strong>地址 Adresse</strong><br />
+
+              这里写具体地址<br />
+
+              Chengdu, Sichuan
+
+            </p>
+
+            <p><strong>电话 Téléphone</strong><br />
+
+              +86 155-0000-0000
+
+            </p>
+
+            <p><strong>营业时间 Horaires</strong><br />
+
+              周二至周日 · Après-midi & soirée<br />
+
+            </p>
+
+            <p style="margin-top:0.8rem;">
+
+              如需导航，可在此处嵌入高德 / 百度 / Google 地图链接。
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <footer>
+
+    © 浩颜搏击舞营 · 舞蹈训练营 – Tous droits réservés
+
+  </footer>
+
+</body>
+
+</html>
+
