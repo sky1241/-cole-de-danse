@@ -76,15 +76,15 @@
 
       position: fixed;
 
-      left: 12%;
+      left: 6%;
 
       top: 50%;
 
       transform: translateY(-50%);
 
-      width: 540px;
+      width: 810px;
 
-      height: 820px;
+      height: 1230px;
 
       z-index: 0;
 
@@ -102,7 +102,7 @@
 
       opacity: 0.5;
 
-      filter: drop-shadow(0 0 30px rgba(255, 75, 155, 0.35));
+      filter: drop-shadow(0 0 30px rgba(255, 75, 155, 0.35)) blur(0.5px);
 
     }
 
@@ -118,9 +118,9 @@
 
         transform: none;
 
-        width: 320px;
+        width: 480px;
 
-        height: 520px;
+        height: 780px;
 
       }
 
@@ -1220,9 +1220,9 @@
 
         <filter id="maskThreshold" color-interpolation-filters="sRGB">
 
-          <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" />
+          <feGaussianBlur stdDeviation="1.2" />
 
-          <!-- Inversion -->
+          <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" />
 
           <feComponentTransfer>
 
@@ -1238,13 +1238,13 @@
 
           <feComponentTransfer>
 
-            <feFuncR type="table" tableValues="0 0 0 0 1 1 1 1" />
+            <feFuncR type="table" tableValues="0 0 0 0.1 1 1 1 1" />
 
-            <feFuncG type="table" tableValues="0 0 0 0 1 1 1 1" />
+            <feFuncG type="table" tableValues="0 0 0 0.1 1 1 1 1" />
 
-            <feFuncB type="table" tableValues="0 0 0 0 1 1 1 1" />
+            <feFuncB type="table" tableValues="0 0 0 0.1 1 1 1 1" />
 
-            <feFuncA type="table" tableValues="0 0 0 0 1 1 1 1" />
+            <feFuncA type="table" tableValues="0 0 0 0.1 1 1 1 1" />
 
           </feComponentTransfer>
 
