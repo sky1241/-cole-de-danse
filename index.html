@@ -72,7 +72,7 @@
 
     /* Silhouette de danseuse dynamique avec effet d'explosion */
 
-    .dancer-silhouette-main {
+    .dancer-silhouette-wrapper {
 
       position: fixed;
 
@@ -82,7 +82,7 @@
 
       transform: translateY(-50%);
 
-      width: 520px;
+      width: 540px;
 
       height: 820px;
 
@@ -90,77 +90,39 @@
 
       pointer-events: none;
 
-      display: flex;
+    }
 
-      align-items: center;
+    .dancer-silhouette-svg {
 
-      justify-content: center;
+      width: 100%;
+
+      height: 100%;
+
+      display: block;
+
+      opacity: 0.5;
+
+      filter: drop-shadow(0 0 30px rgba(255, 75, 155, 0.35));
 
     }
 
-    .dancer-silhouette-main::before {
+    @media (max-width: 900px) {
 
-      content: "";
+      .dancer-silhouette-wrapper {
 
-      position: absolute;
+        left: 2%;
 
-      inset: 0;
+        top: unset;
 
-      background: linear-gradient(135deg, #7b4bff 0%, #ff4b9b 60%, #ff8ad0 100%);
+        bottom: 5%;
 
-      mask-image: url("33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg");
+        transform: none;
 
-      mask-size: contain;
+        width: 320px;
 
-      mask-repeat: no-repeat;
-
-      mask-position: center;
-
-      mask-mode: luminance;
-
-      -webkit-mask-image: url("33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg");
-
-      -webkit-mask-size: contain;
-
-      -webkit-mask-repeat: no-repeat;
-
-      -webkit-mask-position: center;
-
-      -webkit-mask-mode: luminance;
-
-      opacity: 0.4;
-
-      filter: drop-shadow(0 0 30px rgba(255, 75, 155, 0.4));
-
-    }
-
-    @supports not (mask-image: url("")) {
-
-      .dancer-silhouette-main::before {
-
-        background: linear-gradient(135deg, rgba(123, 75, 255, 0.8), rgba(255, 75, 155, 0.9));
-
-        background-image: url("33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg"), linear-gradient(135deg, rgba(123, 75, 255, 0.8), rgba(255, 75, 155, 0.9));
-
-        background-size: contain;
-
-        background-repeat: no-repeat;
-
-        background-position: center;
-
-        filter: brightness(0) invert(1);
-
-        mix-blend-mode: screen;
-
-        opacity: 0.4;
+        height: 520px;
 
       }
-
-    }
-
-    .dancer-silhouette-main img {
-
-      display: none;
 
     }
 
@@ -1240,9 +1202,51 @@
 
   <!-- Silhouette de danseuse dynamique en arrière-plan -->
 
-  <div class="dancer-silhouette-main">
+  <div class="dancer-silhouette-wrapper">
 
-    <img src="33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg" alt="Silhouette danseuse" />
+    <svg class="dancer-silhouette-svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+      <defs>
+
+        <linearGradient id="dancerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+
+          <stop offset="0%" stop-color="#7b4bff" />
+
+          <stop offset="60%" stop-color="#ff4b9b" />
+
+          <stop offset="100%" stop-color="#ff8ad0" />
+
+        </linearGradient>
+
+        <filter id="invertMask">
+
+          <feComponentTransfer>
+
+            <feFuncR type="table" tableValues="1 0" />
+
+            <feFuncG type="table" tableValues="1 0" />
+
+            <feFuncB type="table" tableValues="1 0" />
+
+            <feFuncA type="table" tableValues="0 1" />
+
+          </feComponentTransfer>
+
+        </filter>
+
+        <mask id="dancerMask" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+
+          <image xlink:href="33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg"
+
+            x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid meet" filter="url(#invertMask)" />
+
+        </mask>
+
+      </defs>
+
+      <rect x="0" y="0" width="800" height="800" fill="url(#dancerGradient)" mask="url(#dancerMask)" />
+
+    </svg>
 
   </div>
 
