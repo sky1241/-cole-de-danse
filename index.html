@@ -76,15 +76,15 @@
 
       position: fixed;
 
-      left: 8%;
+      left: 5%;
 
       top: 50%;
 
       transform: translateY(-50%);
 
-      width: 720px;
+      width: 800px;
 
-      height: 1080px;
+      height: 1180px;
 
       z-index: 0;
 
@@ -110,7 +110,7 @@
 
       .dancer-silhouette-wrapper {
 
-        left: 2%;
+        left: 0;
 
         top: unset;
 
@@ -118,9 +118,9 @@
 
         transform: none;
 
-        width: 420px;
+        width: 450px;
 
-        height: 650px;
+        height: 700px;
 
       }
 
@@ -1256,29 +1256,29 @@
 
           </feComponentTransfer>
 
-          <!-- Seuil adapté pour garder la silhouette tout en supprimant le texte -->
+          <!-- Seuil équilibré: supprime le texte mais conserve les détails -->
 
           <feComponentTransfer>
 
-            <feFuncR type="discrete" tableValues="0 0 0 0.1 0.3 0.7 1 1" />
+            <feFuncR type="table" tableValues="0 0 0 0.05 0.25 0.6 0.85 1 1" />
 
-            <feFuncG type="discrete" tableValues="0 0 0 0.1 0.3 0.7 1 1" />
+            <feFuncG type="table" tableValues="0 0 0 0.05 0.25 0.6 0.85 1 1" />
 
-            <feFuncB type="discrete" tableValues="0 0 0 0.1 0.3 0.7 1 1" />
+            <feFuncB type="table" tableValues="0 0 0 0.05 0.25 0.6 0.85 1 1" />
 
           </feComponentTransfer>
 
-          <!-- Lissage léger -->
+          <!-- Lissage très léger -->
 
-          <feGaussianBlur stdDeviation="0.4" />
+          <feGaussianBlur stdDeviation="0.25" />
 
         </filter>
 
-        <mask id="dancerMask" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+        <mask id="dancerMask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
 
           <image xlink:href="33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg"
 
-            x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid meet" filter="url(#maskProcess)" />
+            x="0" y="0" width="800" height="800" preserveAspectRatio="xMidYMid meet" filter="url(#maskProcess)" />
 
         </mask>
 
