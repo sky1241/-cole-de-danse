@@ -2382,6 +2382,90 @@
 
     });
 
+
+
+    // Validation formulaire avec messages en chinois
+
+    const form = document.querySelector('form');
+
+    const nameInput = document.getElementById('name');
+
+    const phoneInput = document.getElementById('phone');
+
+    const messageInput = document.getElementById('message');
+
+
+
+    form.addEventListener('submit', (e) => {
+
+      let isValid = true;
+
+      
+
+      // Validation nom
+
+      if (nameInput.value.trim() === '') {
+
+        alert('请输入您的姓名 / Veuillez entrer votre nom');
+
+        isValid = false;
+
+        return;
+
+      }
+
+
+
+      // Validation téléphone
+
+      const phoneRegex = /^1[3-9]\d{9}$/;
+
+      const phone = phoneInput.value.replace(/[-\s]/g, '');
+
+      if (!phoneRegex.test(phone)) {
+
+        alert('请输入有效的中国手机号码 / Veuillez entrer un numéro de téléphone valide');
+
+        isValid = false;
+
+        return;
+
+      }
+
+
+
+      // Validation message
+
+      if (messageInput.value.trim() === '') {
+
+        alert('请输入您的留言 / Veuillez entrer votre message');
+
+        isValid = false;
+
+        return;
+
+      }
+
+
+
+      if (!isValid) {
+
+        e.preventDefault();
+
+      } else {
+
+        // Formulaire valide - afficher message de confirmation
+
+        setTimeout(() => {
+
+          alert('感谢您的留言！我们会尽快联系您。\n\nMerci pour votre message ! Nous vous contacterons bientôt.');
+
+        }, 100);
+
+      }
+
+    });
+
   </script>
 
 </body>
