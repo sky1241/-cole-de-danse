@@ -76,15 +76,15 @@
 
       position: fixed;
 
-      left: 6%;
+      left: 3%;
 
       top: 50%;
 
       transform: translateY(-50%);
 
-      width: 810px;
+      width: 900px;
 
-      height: 1230px;
+      height: 1350px;
 
       z-index: 0;
 
@@ -100,9 +100,9 @@
 
       display: block;
 
-      opacity: 0.5;
+      opacity: 0.55;
 
-      filter: drop-shadow(0 0 30px rgba(255, 75, 155, 0.35)) blur(0.5px);
+      filter: drop-shadow(0 0 25px rgba(255, 75, 155, 0.4));
 
     }
 
@@ -110,17 +110,17 @@
 
       .dancer-silhouette-wrapper {
 
-        left: 2%;
+        left: 0;
 
         top: unset;
 
-        bottom: 5%;
+        bottom: 4%;
 
         transform: none;
 
-        width: 480px;
+        width: 540px;
 
-        height: 780px;
+        height: 860px;
 
       }
 
@@ -714,13 +714,33 @@
 
     .avatar {
 
-      width: 64px;
+      width: 72px;
 
-      height: 64px;
+      height: 72px;
 
       border-radius: 50%;
 
+      overflow: hidden;
+
+      flex-shrink: 0;
+
+      border: 2px solid rgba(255, 255, 255, 0.2);
+
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
       background: radial-gradient(circle at 30% 20%, #ffbfdc, #7b4bff);
+
+    }
+
+    .avatar img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
 
     }
 
@@ -1512,13 +1532,17 @@
 
           <div class="teacher">
 
-            <div class="avatar"></div>
+            <div class="avatar">
+
+              <img src="elle.jpg" alt="Li Yuyan" />
+
+            </div>
 
             <div>
 
               <div class="teacher-role">馆长 / Direction</div>
 
-              <div class="teacher-name">这里写你女朋友的名字</div>
+              <div class="teacher-name">Li Yuyan</div>
 
               <div class="teacher-bio">
 
@@ -1536,13 +1560,17 @@
 
           <div class="teacher">
 
-            <div class="avatar"></div>
+            <div class="avatar">
+
+              <img src="elle.jpg" alt="Li Yuyan" />
+
+            </div>
 
             <div>
 
               <div class="teacher-role">老师 / Professeure</div>
 
-              <div class="teacher-name">第二位老师（如有）</div>
+              <div class="teacher-name">Li Yuyan</div>
 
               <div class="teacher-bio">
 
