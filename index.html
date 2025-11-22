@@ -94,23 +94,15 @@
 
     }
 
-    .dancer-silhouette-main::before {
-
-      content: "";
-
-      position: absolute;
+    .dancer-silhouette-main img {
 
       width: 100%;
 
       height: 100%;
 
-      background-image: url("33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg");
+      object-fit: contain;
 
-      background-repeat: no-repeat;
-
-      background-size: contain;
-
-      background-position: center;
+      object-position: center;
 
       filter: brightness(0) sepia(100%) saturate(10000%) hue-rotate(310deg) blur(1px);
 
@@ -1196,7 +1188,11 @@
 
   <!-- Silhouette de danseuse dynamique en arrière-plan -->
 
-  <div class="dancer-silhouette-main"></div>
+  <div class="dancer-silhouette-main">
+
+    <img src="33393039-dancing-girl-black-splash-paint-silhouette-isolated-white.jpg" alt="Silhouette danseuse" />
+
+  </div>
 
   <header>
 
