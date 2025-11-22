@@ -578,6 +578,46 @@
 
 
 
+    /* Animations au scroll */
+
+    .fade-in {
+
+      opacity: 0;
+
+      transform: translateY(30px);
+
+      transition: opacity 0.6s ease, transform 0.6s ease;
+
+    }
+
+    .fade-in.visible {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+    .card, .teacher, .gallery-item {
+
+      opacity: 0;
+
+      transform: translateY(20px);
+
+      transition: opacity 0.5s ease, transform 0.5s ease;
+
+    }
+
+    .card.visible, .teacher.visible, .gallery-item.visible {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+
+
     .section-header {
 
       text-align: center;
@@ -2185,6 +2225,54 @@
     document.querySelector('.btn-outline').addEventListener('click', () => {
 
       document.querySelector('#horaires').scrollIntoView({ behavior: 'smooth' });
+
+    });
+
+
+
+    // Animations au scroll
+
+    const observerOptions = {
+
+      threshold: 0.1,
+
+      rootMargin: '0px 0px -50px 0px'
+
+    };
+
+
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add('visible');
+
+        }
+
+      });
+
+    }, observerOptions);
+
+
+
+    // Observer les sections et éléments
+
+    document.querySelectorAll('section').forEach(section => {
+
+      section.classList.add('fade-in');
+
+      observer.observe(section);
+
+    });
+
+
+
+    document.querySelectorAll('.card, .teacher, .gallery-item').forEach(el => {
+
+      observer.observe(el);
 
     });
 
