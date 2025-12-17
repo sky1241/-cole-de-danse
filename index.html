@@ -1541,6 +1541,53 @@
 
     }
 
+    /* Bouton flottant WeChat (mobile) */
+    .floating-wechat-btn {
+
+      position: fixed;
+
+      bottom: 20px;
+
+      left: 20px;
+
+      width: 60px;
+
+      height: 60px;
+
+      background: linear-gradient(135deg, #07c160, #17d780);
+
+      border-radius: 50%;
+
+      box-shadow: 0 8px 24px rgba(7, 193, 96, 0.35);
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      z-index: 100;
+
+      text-decoration: none;
+
+    }
+
+    .floating-wechat-btn:active {
+
+      transform: scale(0.95);
+
+    }
+
+    @media (max-width: 768px) {
+
+      .floating-wechat-btn {
+
+        display: flex;
+
+      }
+
+    }
+
 
 
     /* Bouton retour en haut */
@@ -1785,7 +1832,13 @@
 
 <body>
 
-  <!-- Bouton flottant d'appel (mobile) -->
+  <!-- Boutons flottants (mobile) -->
+
+  <a href="#wechat-qr" class="floating-wechat-btn" aria-label="微信咨询" title="微信咨询">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M8.5 5C5.46 5 3 7.02 3 9.5c0 1.54.93 2.91 2.37 3.77l-.62 1.88 2.16-1.08c.5.1 1.03.16 1.59.16.05 0 .1 0 .15-.01C8.24 13.43 8 12.6 8 11.7c0-2.78 2.3-5.02 5.2-5.02.25 0 .5.02.74.06C12.98 5.72 10.9 5 8.5 5zm10.3 6c-2.76 0-5 1.79-5 4 0 1.2.65 2.28 1.67 3.02l-.44 1.46 1.72-.9c.46.1.93.15 1.45.15 2.76 0 5-1.79 5-4s-2.24-3.73-5-3.73z"/>
+    </svg>
+  </a>
 
     <a href="tel:+8615528302653" class="floating-call-btn" aria-label="拨打电话">
 
@@ -2828,6 +2881,10 @@
 
                 </a>
 
+                <small style="opacity: 0.8; display: block; margin-top: 0.35rem;">
+                  若地图无法显示，请点击上方链接在百度地图中打开。
+                </small>
+
               </div>
 
             </div>
@@ -2997,14 +3054,16 @@
     const heroPrimary = document.querySelector('.hero-actions .btn-primary');
     if (heroPrimary) {
       heroPrimary.addEventListener('click', () => {
-        document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+        const target = document.getElementById('contact');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     }
 
     const heroOutline = document.querySelector('.hero-actions .btn-outline');
     if (heroOutline) {
       heroOutline.addEventListener('click', () => {
-        document.querySelector('#horaires')?.scrollIntoView({ behavior: 'smooth' });
+        const target = document.getElementById('horaires');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     }
 
@@ -3211,7 +3270,7 @@
     // Copie du WeChat ID
     const copyWeChatButton = document.getElementById('copyWeChatId');
     if (copyWeChatButton) {
-      copyWeChatButton.addEventListener('click', async () => {
+      copyWeChatButton.addEventListener('click', () => {
         const wechatSpan = document.getElementById('wechat-id');
         const wechatId = (wechatSpan && wechatSpan.textContent ? wechatSpan.textContent : '').trim();
         if (!wechatId || wechatId === '待添加') {
@@ -3219,10 +3278,7 @@
           return;
         }
 
-        try {
-          await navigator.clipboard.writeText(wechatId);
-          alert('已复制微信号：' + wechatId);
-        } catch (err) {
+        const fallbackCopy = () => {
           const textarea = document.createElement('textarea');
           textarea.value = wechatId;
           textarea.style.position = 'fixed';
@@ -3232,6 +3288,15 @@
           document.execCommand('copy');
           document.body.removeChild(textarea);
           alert('已复制微信号：' + wechatId);
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(wechatId).then(
+            () => alert('已复制微信号：' + wechatId),
+            () => fallbackCopy(),
+          );
+        } else {
+          fallbackCopy();
         }
       });
     }
