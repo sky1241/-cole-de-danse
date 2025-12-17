@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sky1241.github.io/-cole-de-danse/sitemap.xml
