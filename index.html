@@ -38,7 +38,7 @@
 
   <meta property="og:url" content="https://sky1241.github.io/-cole-de-danse/" />
 
-  <meta property="og:image" content="https://sky1241.github.io/-cole-de-danse/elle.jpg" />
+  <meta property="og:image" content="https://sky1241.github.io/-cole-de-danse/elle/2c5512b3fd828983e819cefa4402a459_upscayl_1x_ultramix-balanced-4x.png" />
 
   
 
@@ -2241,7 +2241,7 @@
 
             <div class="avatar">
 
-              <img src="elle/prof 1.jpg" alt="君君" />
+              <img src="elle/prof-1.jpg" alt="君君" />
 
             </div>
 
@@ -2282,7 +2282,7 @@
           <div class="teacher">
 
             <div class="avatar">
-              <img src="elle/mec_tete_pao2(1).jpg" alt="Enseignant" />
+              <img src="elle/mec_tete_pao2-1.jpg" alt="Enseignant" />
             </div>
 
             <div>
@@ -2756,7 +2756,7 @@
             <div id="wechat-qr" style="margin-top: 1rem; padding: 1rem; background: white; border-radius: 12px; display: inline-block;">
 
               <img
-                src="elle/code%20qr.jpg"
+                src="elle/code-qr.jpg"
                 alt="WeChat QR Code"
                 loading="lazy"
                 decoding="async"
@@ -2811,7 +2811,7 @@
 
             <div style="margin-top: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
 
-              <a href="#" class="btn btn-outline" style="font-size: 0.75rem; padding: 0.5rem 1rem;">微信咨询</a>
+              <a href="#wechat-qr" class="btn btn-outline" style="font-size: 0.75rem; padding: 0.5rem 1rem;">微信咨询</a>
 
               <a href="tel:+8615528302653" class="btn btn-outline" style="font-size: 0.75rem; padding: 0.5rem 1rem;">电话咨询</a>
 
@@ -2899,7 +2899,7 @@
 
     "url": "https://sky1241.github.io/-cole-de-danse/",
 
-    "image": "https://sky1241.github.io/-cole-de-danse/elle.jpg",
+    "image": "https://sky1241.github.io/-cole-de-danse/elle/2c5512b3fd828983e819cefa4402a459_upscayl_1x_ultramix-balanced-4x.png",
 
     "priceRange": "¥¥",
 
@@ -2945,21 +2945,23 @@
 
       anchor.addEventListener('click', function (e) {
 
+        const href = this.getAttribute('href');
+
+        // Ignore empty/hash-only anchors (invalid selector: "#")
+        if (!href || href === '#') return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
         e.preventDefault();
 
-        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({
 
-        if (target) {
+          behavior: 'smooth',
 
-          target.scrollIntoView({
+          block: 'start'
 
-            behavior: 'smooth',
-
-            block: 'start'
-
-          });
-
-        }
+        });
 
       });
 
@@ -2969,19 +2971,19 @@
 
     // Liens des boutons hero
 
-    document.querySelector('.btn-primary').addEventListener('click', () => {
+    const heroPrimary = document.querySelector('.hero-actions .btn-primary');
+    if (heroPrimary) {
+      heroPrimary.addEventListener('click', () => {
+        document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
 
-      document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-
-    });
-
-
-
-    document.querySelector('.btn-outline').addEventListener('click', () => {
-
-      document.querySelector('#horaires').scrollIntoView({ behavior: 'smooth' });
-
-    });
+    const heroOutline = document.querySelector('.hero-actions .btn-outline');
+    if (heroOutline) {
+      heroOutline.addEventListener('click', () => {
+        document.querySelector('#horaires')?.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
 
 
 
@@ -3111,17 +3113,23 @@
 
     form.addEventListener('submit', (e) => {
 
-      let isValid = true;
+      e.preventDefault();
 
-      
+      // Bloque l'envoi tant que Formspree n'est pas configuré
+      const action = form.getAttribute('action') || '';
+      if (action.includes('YOUR_FORM_ID')) {
+
+        alert('表单尚未配置（Formspree ID）。请先更新表单配置。');
+
+        return;
+
+      }
 
       // Validation nom
 
       if (nameInput.value.trim() === '') {
 
         alert('请输入您的姓名');
-
-        isValid = false;
 
         return;
 
@@ -3131,15 +3139,13 @@
 
       // Validation téléphone
 
-      const phoneRegex = /^1[3-9]\d{9}$/;
+      const phoneRegex = /^(?:86)?1[3-9]\d{9}$/;
 
-      const phone = phoneInput.value.replace(/[-\s]/g, '');
+      const phone = phoneInput.value.replace(/[\s-]/g, '').replace(/^\+/, '');
 
       if (!phoneRegex.test(phone)) {
 
         alert('请输入有效的中国手机号码');
-
-        isValid = false;
 
         return;
 
@@ -3153,29 +3159,20 @@
 
         alert('请输入您的留言');
 
-        isValid = false;
-
         return;
 
       }
 
 
 
-      if (!isValid) {
+      form.submit();
 
-        e.preventDefault();
+      // Formulaire valide - afficher message de confirmation (Formspree redirige souvent ensuite)
+      setTimeout(() => {
 
-      } else {
+        alert('感谢您的留言！我们会尽快联系您。');
 
-        // Formulaire valide - afficher message de confirmation
-
-        setTimeout(() => {
-
-          alert('感谢您的留言！我们会尽快联系您。');
-
-        }, 100);
-
-      }
+      }, 100);
 
     });
 
