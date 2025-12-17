@@ -894,6 +894,17 @@
 
     }
 
+    .form-note {
+      margin-bottom: 0.8rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 12px;
+      background: rgba(255, 75, 155, 0.12);
+      border: 1px solid rgba(255, 75, 155, 0.25);
+      color: var(--text-light);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
 
 
     /* HORAIRES / TARIFS */
@@ -1776,7 +1787,7 @@
 
   <!-- Bouton flottant d'appel (mobile) -->
 
-  <a href="tel:+8615528302653" class="floating-call-btn" aria-label="Appeler">
+    <a href="tel:+8615528302653" class="floating-call-btn" aria-label="拨打电话">
 
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 
@@ -1790,7 +1801,7 @@
 
   <!-- Bouton retour en haut -->
 
-  <div class="back-to-top" id="backToTop" aria-label="Retour en haut">
+    <div class="back-to-top" id="backToTop" aria-label="返回顶部">
 
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 
@@ -2285,7 +2296,7 @@
           <div class="teacher">
 
             <div class="avatar">
-              <img src="elle/mec_tete_pao2-1.jpg" alt="Enseignant" />
+              <img src="elle/mec_tete_pao2-1.jpg" alt="教练" />
             </div>
 
             <div>
@@ -2750,9 +2761,18 @@
 
             <p><strong>微信 WeChat</strong><br />
 
-              <span id="wechat-id" style="color: var(--accent); font-weight: 600;">待添加</span><br />
+              <span id="wechat-id" style="color: var(--accent); font-weight: 600;">待添加</span>
 
-              <small style="opacity: 0.8;">扫码或搜索添加微信咨询</small>
+              <button
+                id="copyWeChatId"
+                type="button"
+                class="btn btn-outline"
+                style="font-size: 0.72rem; padding: 0.45rem 0.85rem; margin-left: 0.6rem;"
+              >
+                复制微信号
+              </button><br />
+
+              <small style="opacity: 0.8;">建议优先使用微信联系（扫码或复制微信号添加）</small>
 
             </p>
 
@@ -2760,7 +2780,7 @@
 
               <img
                 src="elle/code-qr.jpg"
-                alt="WeChat QR Code"
+                alt="微信二维码"
                 loading="lazy"
                 decoding="async"
                 style="width: 150px; height: 150px; display: block; border: 2px solid #e0e0e0; border-radius: 8px;"
@@ -2802,7 +2822,7 @@
 
               <div style="margin-top: 0.5rem;">
 
-                <a href="https://map.baidu.com/search/新都镇龙家湾226号1栋2层53号/@12112877.195,3620398.83,19z" target="_blank" style="color: var(--accent); text-decoration: underline; font-size: 0.85rem;">
+                <a href="https://map.baidu.com/search/新都镇龙家湾226号1栋2层53号/@12112877.195,3620398.83,19z" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline; font-size: 0.85rem;">
 
                   📍 在百度地图中打开
 
@@ -3082,7 +3102,7 @@
 
       const url = window.location.href;
 
-      alert('📱 请使用微信扫描功能分享此页面\n\nURL: ' + url);
+      alert('请使用微信的分享功能发送此页面链接：\n\n' + url);
 
     }
 
@@ -3112,9 +3132,18 @@
 
     const messageInput = document.getElementById('message');
 
+    // Affiche un message si le formulaire n'est pas encore configuré
+    if (form) {
+      const actionInit = form.getAttribute('action') || '';
+      if (actionInit.includes('YOUR_FORM_ID')) {
+        const note = document.createElement('div');
+        note.className = 'form-note';
+        note.textContent = '表单暂未启用（尚未配置 Formspree）。建议直接通过微信或电话联系我们。';
+        form.prepend(note);
+      }
+    }
 
-
-    form.addEventListener('submit', (e) => {
+    if (form) form.addEventListener('submit', (e) => {
 
       e.preventDefault();
 
@@ -3178,6 +3207,34 @@
       }, 100);
 
     });
+
+    // Copie du WeChat ID
+    const copyWeChatButton = document.getElementById('copyWeChatId');
+    if (copyWeChatButton) {
+      copyWeChatButton.addEventListener('click', async () => {
+        const wechatSpan = document.getElementById('wechat-id');
+        const wechatId = (wechatSpan && wechatSpan.textContent ? wechatSpan.textContent : '').trim();
+        if (!wechatId || wechatId === '待添加') {
+          alert('微信号尚未填写，请直接扫描二维码添加。');
+          return;
+        }
+
+        try {
+          await navigator.clipboard.writeText(wechatId);
+          alert('已复制微信号：' + wechatId);
+        } catch (err) {
+          const textarea = document.createElement('textarea');
+          textarea.value = wechatId;
+          textarea.style.position = 'fixed';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          alert('已复制微信号：' + wechatId);
+        }
+      });
+    }
 
   </script>
 
