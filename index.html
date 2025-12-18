@@ -1413,7 +1413,9 @@
 
     input,
 
-    textarea {
+    textarea,
+
+    select {
 
       width: 100%;
 
@@ -2760,35 +2762,67 @@
 
         <div class="contact-grid">
 
-          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <form id="contactForm">
+
+            <div class="form-note">提交后会自动复制信息，请在微信中粘贴发送。</div>
 
             <label for="name">姓名</label>
 
-            <input id="name" name="name" type="text" placeholder="您的名字" required />
+            <input id="name" name="name" type="text" placeholder="请输入姓名" required />
 
 
 
-            <label for="phone">电话</label>
+            <label for="phone">手机</label>
 
-            <input id="phone" name="phone" type="tel" placeholder="您的联系方式" required />
-
-
-
-            <label for="wechat">微信 WeChat (可选)</label>
-
-            <input id="wechat" name="wechat" type="text" placeholder="您的微信号" />
+            <input id="phone" name="phone" type="tel" placeholder="请输入手机号" required />
 
 
 
-            <label for="message">留言</label>
+            <label for="age">年龄</label>
 
-            <textarea id="message" name="message" placeholder="想上的课程、方便联系的时间等…" required></textarea>
+            <input id="age" name="age" type="text" placeholder="例如：8岁 / 16岁 / 成人" />
+
+
+
+            <label for="course">想学课程</label>
+
+            <select id="course" name="course" required>
+
+              <option value="">请选择</option>
+
+              <option value="舞蹈">舞蹈</option>
+
+              <option value="搏击">搏击</option>
+
+              <option value="舞蹈+搏击">舞蹈 + 搏击</option>
+
+              <option value="先咨询">先咨询</option>
+
+            </select>
+
+
+
+            <label for="availability">可上课时间</label>
+
+            <input id="availability" name="availability" type="text" placeholder="例如：周末下午 / 工作日晚上" />
+
+
+
+            <label for="wechat">微信号（可选）</label>
+
+            <input id="wechat" name="wechat" type="text" placeholder="填写微信号便于联系" />
+
+
+
+            <label for="message">备注</label>
+
+            <textarea id="message" name="message" placeholder="可以写上需求、目标或孩子情况。" rows="4"></textarea>
 
 
 
             <button type="submit" class="btn btn-primary">
 
-              发送留言
+              复制咨询信息
 
             </button>
 
@@ -3189,82 +3223,102 @@
 
     const phoneInput = document.getElementById('phone');
 
+    const ageInput = document.getElementById('age');
+
+    const courseInput = document.getElementById('course');
+
+    const availabilityInput = document.getElementById('availability');
+
+    const wechatInput = document.getElementById('wechat');
+
     const messageInput = document.getElementById('message');
 
-    // Affiche un message si le formulaire n'est pas encore configuré
-    if (form) {
-      const actionInit = form.getAttribute('action') || '';
-      if (actionInit.includes('YOUR_FORM_ID')) {
-        const note = document.createElement('div');
-        note.className = 'form-note';
-        note.textContent = '表单暂未启用（尚未配置 Formspree）。建议直接通过微信或电话联系我们。';
-        form.prepend(note);
+    const buildContactMessage = () => {
+      const lines = [];
+      lines.push('咨询信息');
+      if (nameInput && nameInput.value.trim()) {
+        lines.push('姓名：' + nameInput.value.trim());
       }
-    }
+      if (phoneInput && phoneInput.value.trim()) {
+        lines.push('手机：' + phoneInput.value.trim());
+      }
+      if (ageInput && ageInput.value.trim()) {
+        lines.push('年龄：' + ageInput.value.trim());
+      }
+      if (courseInput && courseInput.value.trim()) {
+        lines.push('想学课程：' + courseInput.value.trim());
+      }
+      if (availabilityInput && availabilityInput.value.trim()) {
+        lines.push('可上课时间：' + availabilityInput.value.trim());
+      }
+      if (wechatInput && wechatInput.value.trim()) {
+        lines.push('微信号：' + wechatInput.value.trim());
+      }
+      if (messageInput && messageInput.value.trim()) {
+        lines.push('备注：' + messageInput.value.trim());
+      }
+      lines.push('来源：haoyanwuying.com');
+      return lines.join('\n');
+    };
+
+    const copyText = (textToCopy, onDone) => {
+      const done = typeof onDone === 'function' ? onDone : function () {};
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(textToCopy).then(
+          () => done(),
+          () => {
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            done();
+          },
+        );
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+        textarea.style.position = 'fixed';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        done();
+      }
+    };
 
     if (form) form.addEventListener('submit', (e) => {
-
       e.preventDefault();
 
-      // Bloque l'envoi tant que Formspree n'est pas configuré
-      const action = form.getAttribute('action') || '';
-      if (action.includes('YOUR_FORM_ID')) {
-
-        alert('表单尚未配置（Formspree ID）。请先更新表单配置。');
-
-        return;
-
-      }
-
-      // Validation nom
-
-      if (nameInput.value.trim() === '') {
-
+      if (!nameInput || nameInput.value.trim() === '') {
         alert('请输入您的姓名');
-
         return;
-
       }
 
-
-
-      // Validation téléphone
-
+      const phone = phoneInput ? phoneInput.value.replace(/[\s-]/g, '').replace(/^\+/, '') : '';
       const phoneRegex = /^(?:86)?1[3-9]\d{9}$/;
-
-      const phone = phoneInput.value.replace(/[\s-]/g, '').replace(/^\+/, '');
-
       if (!phoneRegex.test(phone)) {
-
         alert('请输入有效的中国手机号码');
-
         return;
-
       }
 
-
-
-      // Validation message
-
-      if (messageInput.value.trim() === '') {
-
-        alert('请输入您的留言');
-
+      if (courseInput && courseInput.value.trim() === '') {
+        alert('请选择课程');
         return;
-
       }
 
-
-
-      form.submit();
-
-      // Formulaire valide - afficher message de confirmation (Formspree redirige souvent ensuite)
-      setTimeout(() => {
-
-        alert('感谢您的留言！我们会尽快联系您。');
-
-      }, 100);
-
+      const message = buildContactMessage();
+      copyText(message, () => {
+        alert('已复制咨询信息，请在微信中粘贴发送。');
+        const qr = document.getElementById('wechat-qr');
+        if (qr) {
+          qr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
     });
 
     // Copie du WeChat ID
