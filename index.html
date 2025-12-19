@@ -402,6 +402,30 @@
 
     }
 
+    .btn-primary::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      border-radius: inherit;
+
+      background: linear-gradient(120deg, rgba(255,255,255,0.25), transparent 60%);
+
+      opacity: 0;
+
+      transition: opacity 0.2s ease;
+
+    }
+
+    .btn-primary:hover::after {
+
+      opacity: 1;
+
+    }
+
 
 
     .btn-outline {
@@ -452,7 +476,8 @@
 
       border-radius: 999px;
 
-      background: linear-gradient(120deg, #7b4bff, #b14bff, #ff4b9b);
+      background: linear-gradient(120deg, #7b4bff, #b14bff, #ff4b9b, #7b4bff);
+      background-size: 240% 240%;
 
       padding: 2rem 1.5rem;
 
@@ -492,6 +517,16 @@
 
       opacity: 0.4;
 
+    }
+
+    .hero-banner {
+      animation: gradientShift 10s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
 
@@ -760,6 +795,15 @@
 
       margin-right: auto;
 
+    }
+    .section-header::after {
+      content: "";
+      display: block;
+      width: 120px;
+      height: 3px;
+      margin: 0.8rem auto 0;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 75, 155, 0.9), rgba(255, 255, 255, 0));
+      filter: drop-shadow(0 0 8px rgba(255, 75, 155, 0.6));
     }
 
 
@@ -1251,6 +1295,8 @@
       transform: translateY(-4px);
 
       box-shadow: 0 12px 28px rgba(123, 75, 255, 0.4);
+
+      filter: drop-shadow(0 0 12px rgba(255, 75, 155, 0.35));
 
     }
 
