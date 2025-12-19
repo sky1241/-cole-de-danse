@@ -471,6 +471,26 @@
       pointer-events: none;
     }
 
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        radial-gradient(rgba(123, 75, 255, 0.18) 1px, transparent 1px);
+      background-size: 140px 140px, 220px 220px;
+      background-position: 0 0, 60px 40px;
+      opacity: 0.18;
+      pointer-events: none;
+      animation: floatDots 18s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes floatDots {
+      0% { background-position: 0 0, 60px 40px; }
+      50% { background-position: 30px 40px, 80px 80px; }
+      100% { background-position: 0 0, 60px 40px; }
+    }
+
 
     .hero-banner {
 
@@ -2301,6 +2321,8 @@
 
     <section class="hero" id="accueil">
 
+      <div class="hero-particles"></div>
+
       <div class="container">
 
         <div class="hero-banner">
@@ -3472,6 +3494,38 @@
       observer.observe(el);
 
     });
+
+    // Animation des stats (compteur)
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const animateCount = (el) => {
+      const targetText = (el.textContent || '').trim();
+      const match = targetText.match(/(\d+(?:\.\d+)?)(.*)/);
+      if (!match) return;
+      const target = parseFloat(match[1]);
+      const suffix = match[2] || '';
+      let start = 0;
+      const duration = 1200;
+      const startTime = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const val = Math.floor(progress * target);
+        el.textContent = val + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const statsSection = document.getElementById('stats');
+    if (statsSection && statNumbers.length) {
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            statNumbers.forEach(animateCount);
+            statsObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      statsObserver.observe(statsSection);
+    }
 
 
 
