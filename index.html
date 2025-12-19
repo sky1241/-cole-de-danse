@@ -247,6 +247,13 @@
 
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+    }
+
 
 
     .logo {
@@ -292,6 +299,26 @@
       gap: 1.25rem;
 
       font-size: 0.9rem;
+
+    }
+
+    .menu-toggle {
+
+      display: none;
+
+      background: transparent;
+
+      border: 1px solid rgba(255, 255, 255, 0.25);
+
+      color: var(--text);
+
+      border-radius: 10px;
+
+      padding: 0.45rem 0.6rem;
+
+      font-size: 1rem;
+
+      cursor: pointer;
 
     }
 
@@ -1506,6 +1533,73 @@
 
     }
 
+    /* Barre CTA mobile */
+    .cta-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: none;
+      gap: 0.8rem;
+      padding: 0.75rem 1rem;
+      background: rgba(5, 3, 11, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 95;
+      align-items: center;
+    }
+
+    .cta-bar .btn {
+      width: 100%;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .cta-bar {
+        display: flex;
+      }
+      .floating-call-btn, .floating-wechat-btn {
+        display: none;
+      }
+      body {
+        padding-bottom: 72px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      nav {
+        gap: 0.6rem;
+      }
+      nav ul {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        background: rgba(5, 3, 11, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: var(--shadow);
+        border-radius: 12px;
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.6rem;
+        min-width: 200px;
+        display: none;
+      }
+      body.nav-open nav ul {
+        display: flex;
+      }
+      body.nav-open {
+        overflow: hidden;
+      }
+      .nav-phone {
+        display: none;
+      }
+    }
+
 
 
     /* Bouton retour en haut */
@@ -1786,6 +1880,13 @@
 
 
 
+  <!-- Barre d'actions mobile -->
+  <div class="cta-bar">
+    <a href="#wechat-qr" class="btn btn-primary">微信咨询</a>
+    <a href="tel:+8615528302653" class="btn btn-outline">拨打电话</a>
+  </div>
+
+
   <!-- Silhouette de danseuse dynamique en arrière-plan -->
 
   <div class="dancer-silhouette-wrapper">
@@ -1871,6 +1972,8 @@
       </div>
 
       <nav>
+
+        <button class="menu-toggle" type="button" aria-label="打开菜单">☰</button>
 
         <ul>
 
@@ -2172,7 +2275,7 @@
 
             <div class="avatar">
 
-              <img src="elle/2c5512b3fd828983e819cefa4402a459_upscayl_1x_ultramix-balanced-4x.png" alt="Li Yuyan" />
+              <img src="elle/2c5512b3fd828983e819cefa4402a459_upscayl_1x_ultramix-balanced-4x.png" loading="lazy" decoding="async" alt="Li Yuyan" />
 
             </div>
 
@@ -2200,7 +2303,7 @@
 
             <div class="avatar">
 
-              <img src="elle/prof-1.jpg" alt="君君" />
+              <img src="elle/prof-1.jpg" loading="lazy" decoding="async" alt="君君" />
 
             </div>
 
@@ -2241,7 +2344,7 @@
           <div class="teacher">
 
             <div class="avatar">
-              <img src="elle/mec_tete_pao2-1.jpg" alt="教练" />
+              <img src="elle/mec_tete_pao2-1.jpg" loading="lazy" decoding="async" alt="教练" />
             </div>
 
             <div>
@@ -2522,7 +2625,7 @@
 
             <div class="gallery-item-inner">
 
-              <img src="p1.png" alt="Salle de danse 1" />
+              <img src="p1.png" loading="lazy" decoding="async" alt="Salle de danse 1" />
 
             </div>
 
@@ -2532,7 +2635,7 @@
 
             <div class="gallery-item-inner">
 
-              <img src="p2.png" alt="Salle de danse 2" />
+              <img src="p2.png" loading="lazy" decoding="async" alt="Salle de danse 2" />
 
             </div>
 
@@ -2542,7 +2645,7 @@
 
             <div class="gallery-item-inner">
 
-              <img src="p3.png" alt="Salle de danse 3" />
+              <img src="p3.png" loading="lazy" decoding="async" alt="Salle de danse 3" />
 
             </div>
 
@@ -2943,6 +3046,22 @@
 
   <script>
 
+    // Navigation mobile (burger)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelectorAll('nav a');
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        document.body.classList.toggle('nav-open');
+      });
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        document.body.classList.remove('nav-open');
+      });
+    });
+
     // Smooth scroll pour tous les liens d'ancre
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -3217,7 +3336,7 @@
       copyWeChatButton.addEventListener('click', () => {
         const wechatSpan = document.getElementById('wechat-id');
         const wechatId = (wechatSpan && wechatSpan.textContent ? wechatSpan.textContent : '').trim();
-        if (!wechatId || wechatId === 'Sspark_') {
+        if (!wechatId || wechatId === '待添加') {
           alert('微信号尚未填写，请直接扫描二维码添加。');
           return;
         }

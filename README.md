@@ -10,7 +10,7 @@ Public cible : parents/élèves (Chine, mobile-first)
 
 ## Fonctionnalités principales
 - One-page HTML/CSS/JS (no build, no backend)
-- Scroll fluide, animations, bouton retour haut, boutons flottants mobile (WeChat + appel)
+- Scroll fluide, animations, bouton retour haut, boutons flottants mobile (WeChat + appel), barre CTA mobile, menu burger
 - Carte Baidu (iframe) + lien externe Baidu Maps
 - Données structurées (schema.org DanceSchool), sitemap + robots
 - Domaine custom : `haoyanwuying.com` (CNAME GitHub Pages)
