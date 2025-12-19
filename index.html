@@ -2848,7 +2848,7 @@
 
             <p><strong>微信 WeChat</strong><br />
 
-              <span id="wechat-id" style="color: var(--accent); font-weight: 600;">待添加</span>
+              <span id="wechat-id" style="color: var(--accent); font-weight: 600;">Sspark_</span>
 
               <button
                 id="copyWeChatId"
@@ -3327,7 +3327,7 @@
       copyWeChatButton.addEventListener('click', () => {
         const wechatSpan = document.getElementById('wechat-id');
         const wechatId = (wechatSpan && wechatSpan.textContent ? wechatSpan.textContent : '').trim();
-        if (!wechatId || wechatId === '待添加') {
+        if (!wechatId || wechatId === 'Sspark_') {
           alert('微信号尚未填写，请直接扫描二维码添加。');
           return;
         }
